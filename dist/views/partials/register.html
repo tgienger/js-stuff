@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <div class="span8 offset2">
+      <div class="well well-light">
+        <h4 class="color">User Registration</h4>
+        <form novalidate="" class="form-horizontal">
+
+          <div class="control-group">
+              <label class="control-label" for="TE-FNAME">First Name</label>
+              <div class="controls">
+                  <input type="text" id="TE-FNAME" ng-model="user.fName" required="" autofocus="">
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-LNAME">Last Name</label>
+              <div class="controls">
+                  <input type="text" id="TE-LNAME" ng-model="user.lName" required="">
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-ZIP">ZIP Code</label>
+              <div class="controls">
+                  <input type="text" id="TE-ZIP" ng-model="user.zipCode" required="">
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-EMAIL">Email</label>
+              <div class="controls">
+                  <input ng-model="user.email" type="email" id="TE-EMAIL" placeholder="name@address.com" required="">
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-BDAY">What year were you born?</label>
+              <div class="controls">
+                  <!-- <select id="TE-BDAY" ng-model="user.yob" ng-change="" ng-options="year for year in years" required>
+                      <option value="">Select a Year</option>
+                  </select> -->
+                  <year-select class="" required=""></year-select>
+              </div>
+          </div>
+
+          <label for="TE-GENDER" class="control-label">Gender</label>
+          <div class="button-group controls control-group" data-toggle="buttons">
+              <label class="btn btn-default">
+                  <input ng-model="user.gender" value="m" type="radio" id="TE-GENDER" name="TE-GENDER" style="vertical-align: top"> Male</label>
+
+              <label class="btn btn-default">
+                  <input ng-model="user.gender" value="f" type="radio" id="TE-GENDER" name="TE-GENDER" style="vertical-align: top"> Female</label>
+          </div>
+
+          <!-- Add a sport to follow : sport-select directive -->
+          <label class="control-label" for="TE-SPORT">Pick a sport to follow</label>
+          <sport-select></sport-select>
+
+          <div class="spacer"></div>
+          <h4 class="color">Login Information</h4>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-UNAME">Username</label>
+              <div class="controls">
+                  <input ng-model="user.username" type="text" id="TE-UNAME" placeholder="Username">
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-PASS">Password</label>
+              <div class="controls">
+                  <input ng-model="user.password" type="password" id="TE-PASS" placeholder="Password">
+              </div>
+          </div>
+          <div class="control-group">
+              <label class="control-label" for="TE-CPASS">Confirm Password</label>
+              <div class="controls">
+                  <input ng-model="user.confirm" type="password" id="TE-CPASS" placeholder="Password">
+              </div><span ng-bind="passwordMessage"></span>
+          </div>
+        </form>
+      </div> <!-- div.well.well-light -->
+      <div class="pull-right">
+          <a href="/welcome" class="btn">Cancel</a>
+          <button ng-click="register(user)" class="btn btn-green" ng-disabled="form.$invalid || isUnchanged(user)">Register</button>
+      </div>
+    </div> <!-- div.span8.offset2 -->
+  </div> <!-- div.row -->
+</div> <!-- div.container -->
+
+<!-- Registration Modal -->
+<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <img src="images/d41d8cd9.28sports_email_s.png" alt="28Sports">
+    <button ng-click="closeModal()" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"> Welcome to 28Sports!</h3>
+  </div>
+  <div class="modal-body">
+    <p>Your registration a was succes! Check your email for a validation code.</p>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="closeModal()" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+<div footer=""></div>

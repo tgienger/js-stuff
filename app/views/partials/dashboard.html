@@ -1,0 +1,75 @@
+    <div header user="1" active="dashboard"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="span10">
+
+          <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.text}}</alert>
+
+					<div class="well well-custom">
+						<span class="well-hero">What's happening?</span>
+						<form class="form-inline form-well">
+							<textarea class="post-area" rows="2"></textarea>
+							<user-sports ng-model="postFilter.sport"></user-sports>
+							<span class="btn btn-mini">Attach Picture</span>
+							<button class="btn btn-green pull-right" type="submit">Update</button>
+						</form>
+					</div>
+
+					<div class="posts-wrap">
+						<ul class="nav nav-tabs">
+							<li class="brand">People</li>
+							<li><a href="#">All</a></li>
+							<li><a href="#">Friends</a></li>
+							<li class="active"><a href="#">Following</a></li>
+							<li><a href="#">Local</a></li>
+							<!-- <li class="pull-right"><a href="#">Messages <span class="badge badge-important">6</span></a></li> -->
+						</ul>
+						<ul class="nav nav-tabs">
+							<li class="brand">Sports</li>
+							<li class="active"><a href="#">All Sports</a></li>
+							<li class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+									Select a Sport
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li id="sport-3" value="3" ng-repeat="sport in sportList"><a href="#">{{sport.sport}}</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="posts-holder">
+
+							<status ng-repeat="post in posts" user="user" status="post">
+
+            </div>
+          </div>
+          <br><hr class="visible-phone">
+        </div>
+        <div class="span2">
+          <div class="media media-user">
+            <a class="pull-left" href="#">
+              <img class="media-object" src="images/logo0.png">
+            </a>
+            <div class="media-body">
+            <h4 class="media-heading" ng-bind="currentUser.first_name || 'Tony'"></h4>
+              <span ng-bind="currentUser.last_name || 'Stark'"></span><br>
+              <small><a href="/profile">Edit Profile</a></small>
+            </div>
+          </div>
+          <hr>
+
+          <alert ng-repeat="message in messages" type="message.type" close="closeMessageAlert($index)">{{message.text}}</alert>
+
+
+          <h5>Invite your friends</h5>
+          <p>Invite your friends to join 28Sports. Enter multiple email addresses separated by a comma.</p>
+          <form class="form-inline form-invite">
+            <textarea class="invite-area" rows="2"></textarea>
+            <button class="btn btn-green" type="submit">Invite</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div footer></div>

@@ -1,0 +1,45 @@
+                            <div class="media media-post">
+                                <a class="pull-left" href="#">
+                                    <img ui-if="status.filename_thumb != null" class="media-object" ng-src="/files/{{status.user_id}}/{{status.filename_thumb}}" width="{{status.width_thumb}}" height="{{status.height_thumb}}">
+                                    <img ui-if="status.filename_thumb == null" class="media-object" ng-src="/img/icon-user.png" width="48" height="48">
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">{{status.first_name}} {{status.last_name}}</a></h4>
+                  <div ui-if="status.file_count > 0">
+                    <button class="btn thumbnail thumb-post" ng-click="status.open()">
+                      <img ng-src="{{status.file_path_thm_sm}}" alt="">
+                    </button>
+                    <small ui-if="status.file_count > 1" class="text-info">{{status.file_count}} images in this gallery</small>
+                  </div>
+                                    {{status.status}}
+                                    <div class="media-info clearfix">
+                                        <div class="row-fluid">
+                                            <div class="span6">
+                                                <span class="media-info-text">
+                                                    {{status.sport}} : <span class="muted">{{status.gmdate_created * 1000 | date:'M/d/yy H:mm a'}}</span>
+                                                </span><br>
+                                                <div ui-if="user.user_id != status.user_id" class="btn-group btn-media">
+                          <a ui-if="status.group_id != 2" href="#" class="btn btn-mini">Close Friends</a>
+                          <a ui-if="status.group_id == null" href="#" class="btn btn-mini">People | Follow</a>
+                          <a ui-if="status.group_id != null" href="#" class="btn btn-mini">Unfollow</a>
+                          <a href="#" class="btn btn-mini">Report or Block</a>
+                          <hr class="visible-phone">
+                        </div>
+                      </div>
+                      <div class="span6">
+                        <div class="media-info-controls clearfix">
+                          <span class="muted">No Replies</span>
+                          <a href="#" class="btn btn-mini btn-info">Reply</a>
+                        </div>
+                        <div class="media-info-controls clearfix">
+                          <span class="likes">{{status.like_count}} Likes</span>
+                          <a ui-if="user.user_id != status.user_id && status.like_id == null" href="#" class="btn btn-mini">Like this!</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <status ng-repeat="reply in status.replies" user="user" status="reply"> -->
+
+                </div>
+              </div>

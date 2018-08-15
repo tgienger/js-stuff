@@ -1,0 +1,126 @@
+<div header="" user="1" active="search"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="span4">
+					<div class="well well-custom well-fixed">
+						<span class="well-hero">Filter Search Results</span>
+						<hr>
+						<form class="form-well">
+							<label for="TE-SPORTS">By Sports You Follow</label>
+
+							<select id="TE-SPORTS" class="span3" ng-model="searchFilter.sport" ng-options="sport.sport for sport in sportList">
+								<option value="">Select a Sport</option>
+							</select>
+
+							<label for="TE-STATE">By State</label>
+							<state-select ng-model="searchFilter.state"></state-select>
+							<label for="TE-NAME" ng-model="searchFilter.name">By Name</label>
+							<input id="TE-NAME" class="span3" type="text">
+						</form>
+					</div>
+					<hr class="visible-phone">
+				</div>
+				<div class="span8">
+					<h2>Find People</h2>
+					<hr>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/logo0.png">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">{{search.first_name}} {{search.last_name}}</a></h4>
+							Odd future lomo messenger bag, wayfarers mcsweeney's magna narwhal.
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Send Friend Request</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/logo1.jpg">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">Persons Nameish</a></h4>
+							Lo-fi terry richardson commodo, laborum dolor dolore echo park.
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Add As Friend</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/logo2.jpg">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">Joe Bobington</a></h4>
+							Iphone art party echo park gastropub, etsy placeat freegan wolf.
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Add As Friend</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="images/d41d8cd9.icon-user.png">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">User Van Der Useington</a></h4>
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Add As Friend</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/logo3.png">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">Super Evil Dolan</a></h4>
+							YOLO
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Add As Friend</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- User Block -->
+					<div class="media media-person">
+						<a class="pull-left" href="#">
+							<img class="media-object" src="img/logo4.png">
+						</a>
+						<div class="media-body">
+							<h4 class="media-heading"><a href="#">James Goofy</a></h4>
+							90's vero brunch nihil typewriter four loko.
+							<div class="media-info clearfix">
+								<div class="btn-group btn-media">
+									<button class="btn btn-small">Follow This Person</button>
+									<button class="btn btn-small btn-green">Add As Friend</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <div footer=""></div>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang='en' ng-app="28experimentApp">
+  <head>
+    <meta charset="utf-8">
+    <title>28Sports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/docs/assets/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- <link rel="stylesheet" href="styles/bootstrap.css" media="screen"> -->
+    <link rel="stylesheet" href="styles/bootstrap-responsive.css" media="screen">
+    <link rel="stylesheet" href="styles/sports-core.css" media="screen">
+    <link rel="stylesheet" href="styles/bootstrap/css/bootstrap.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!-- <div header user="1" active="profile"></div> -->
+    <div ng-view></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+<!--     [if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif] -->
+
+<!--     build:js(app) scripts/vendor.js -->
+<!--     bower:j -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/docs/assets/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!--     endbowe> -->
+
+<!--     Added Script> -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/angular-ui.js"></script>
+    <script src="scripts/custom.js"></script>
+    <script src="scripts/angular-animate.min.js"></script>
+
+<!--     Controller> -->
+    <script src="scripts/controllers/search.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/controllers/welcome.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
+    <script src="scripts/controllers/register.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <script src="scripts/controllers/message.js"></script>
+
+<!--     Directive> -->
+    <script src="scripts/directives/appversion.js"></script>
+    <script src="scripts/directives/footer.js"></script>
+    <script src="scripts/directives/header.js"></script>
+    <script src="scripts/directives/status.js"></script>
+    <script src="scripts/directives/sport_selection.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+
+<!--     Filter> -->
+    <script src="scripts/filters/interpolate.js"></script>
+
+<!--     Service> -->
+    <script src="scripts/services/services.js"></script>
+<!--     endbuild -->
+
+  </body>
+</html>

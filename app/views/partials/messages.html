@@ -1,0 +1,101 @@
+<div header user="1" active="messages"></div>
+<div class="container">
+  <div class="row">
+    <div class="span12">
+            <div class="media media-user">
+              <a class="pull-left" href="#">
+              </a>
+              <div class="media-body">
+              <h4>{{currentUser.first_name}} {{currentUser.last_name}}<small> &nbsp;{{currentUser.username}}</small></h4>
+              </div>
+            </div>
+            <hr>
+          </div>
+    <div class="span6">
+      <h4>
+      <input ng-model="inboxFilter" type="text" class="pull-right search-query" placeholder="Filter Messages">
+      <ul class="nav nav-tabs" id="myTab">
+        <li><a ng-click="getInbox(); currentView = 'inbox'; inboxFilter=''" href="#Inbox">Inbox</a></li>
+        <li><a ng-click="getSent(); currentView = 'sent'; inboxFilter=''" href="#Sent">Sent</a></li>
+        <li><a ng-click="getTrash(); currentView = 'trash'; inboxFilter=''" href="#Trash">Trash</a></li>
+      </ul>
+      </h4>
+      <div class="tab-content">
+        <div class="tab-pane" id="Inbox">
+          <!-- ********* -->
+          <!-- INBOX TAB -->
+          <!-- ********* -->
+          <table class="table">
+            <tbody class="messageBox">
+              <tr class="message" ng-repeat="message in messages | filter:inboxFilter | orderBy:'gmdate_created':'reverse'" ng-class="message.isRead ? 'well' : ''">
+                <td ng-click="viewMessage(message); message.isRead = true;" width="100px">{{message.username}}</td>
+                <td ng-click="viewMessage(message); message.isRead = true;" colspan="2">{{message.body | limitTo: 30}}</td>
+                <td ng-click="viewMessage(message); message.isRead = true;" width="100px">{{message.gmdate_created | date}}</td>
+                <td><button ng-click="trash(this.message.id)" class="btn btn-danger btn-mini pull-right" popover-placement="right" popover="Trash" popover-trigger="mouseenter"><i class="icon-trash icon-white"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- END INBOX -->
+        </div>
+
+        <div class="tab-pane" id="Sent">
+          <!-- ******** -->
+          <!-- SENT TAB -->
+          <!-- ******** -->
+          <table class="table">
+            <tbody class="messageBox">
+              <tr class="message well" ng-repeat="message in sent | filter:inboxFilter | orderBy:'gmdate_created':'reverse'" ng-class="message.isRead ? 'well' : ''">
+                <td ng-click="viewSent(message)" width="100px">{{message.username}}</td>
+                <td ng-click="viewSent(message)" colspan="2">{{message.body | limitTo: 30}}</td>
+                <td ng-click="viewSent(message)" width="100px">{{message.gmdate_created | date}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- END SENT -->
+        </div>
+
+        <div class="tab-pane" id="Trash">
+          <!-- ********* -->
+          <!-- TRASH TAB -->
+          <!-- ********* -->
+          <table class="table">
+            <tbody class="messageBox">
+              <tr class="message" ng-repeat="message in trashData | filter:inboxFilter | orderBy:'gmdate_created':'reverse'" ng-class="message.isRead ? 'well' : ''">
+                <td ng-click="viewMessage(message)" width="100px">{{message.username}}</td>
+                <td ng-click="viewMessage(message)" colspan="2">{{message.body | limitTo: 30}}</td>
+                <td ng-click="viewMessage(message)" width="100px">{{message.gmdate_created | date}}</td>
+                <td><button ng-click="unTrash(this.message.id)" class="btn btn-success btn-mini pull-right" popover-placement="right" popover="Move to Inbox" popover-trigger="mouseenter"><i class="icon-envelope icon-white"></i></button></td>
+                <!-- <td>DELETE BUTTON HERE??</td> -->
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- END TRASH -->
+        </div>
+      </div>
+
+    </div>
+    <div class="span6">
+
+       <alert ng-repeat="message in alerts" type="message.type" close="closeAlert($index)">{{message.text}}</alert>
+
+        <div ng-show="replyStarted" class="replyBox">
+          <textarea id="replybox" rows="5" ng-model="reply.body" class="input-block-level"></textarea>
+          <button ng-click="reply(displayMessage, reply.body)" class="btn btn-green btn-small pull-right">send</button>
+        </div>
+        <!-- TODO: Finnish "NEW" message.
+             Must include:
+                - Friends list
+        -->
+        <div ng-show="newMsg" class="replyBox">
+
+          <textarea id="replybox" rows="5" ng-model="reply.body" class="input-block-level"></textarea>
+          <button ng-click="reply()" class="btn btn-green btn-small pull-right">send</button>
+        </div>
+
+      <h5 ng-bind="displayMessage.username"></h5><button ng-show="displayMessage.id && currentView != 'sent'" ng-click="openReply()" type="button" class="btn btn-green btn-mini pull-right" popover-placement="right" popover="Reply to sender" popover-trigger="mouseenter"><i ng-class="replyStarted ? 'icon-remove' : 'icon-share-alt'" class="icon-white"></i></button>
+      <pre>{{displayMessage.body}}</pre>
+    </div>
+  </div>
+</div>

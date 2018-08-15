@@ -1,0 +1,136 @@
+		<div header user="1" active="settings"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="span8 offset2">
+
+        <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.text}}</alert>
+
+					<div class="well well-light">
+
+<!-- 						Account Settings -->
+						<h4 class="color">Account Settings</h4>
+						<form class="form-horizontal">
+
+							<div class="control-group">
+								<label for="" class="control-label">Username</label>
+								<div class="controls">
+									<input type="text" value="{{currentUser.username}}" readonly>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="TE-NEWPASS">New Password</label>
+								<div class="controls">
+									<input type="password" id="TE-NEWPASS" ng-model="user.newPass">
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="TE-LNAME">Confirm New Password</label>
+								<div class="controls">
+									<input type="password" id="TE-LNAME" ng-model="user.confirm">
+								</div><span ng-bind="passwordError"></span>
+							</div>
+
+							<div class="control-group">
+                <label for="TE-CURRENTEMAIL" class="control-label">Current Email</label>
+                <div class="controls">
+                  <input type="text" value="{{currentUser.email}}" readonly>
+                </div>
+								<label class="control-label" for="TE-EMAIL">New Email</label>
+								<div class="controls">
+									<input type="email" id="TE-EMAIL"
+                  ng-model="user.email" placeholder="name@address.com">
+								</div>
+							</div>
+
+						</form>
+
+					</div> <!-- End Account Settings well -->
+
+<!-- 					Confirm changes with passord -->
+					<div class="well well-light">
+						<h4 class="color">Confirm Changes</h4>
+						<form name="confirm" class="form-horizontal">
+
+							<div class="control-group">
+								<label class="control-label" for="TE-PASS">Current Password</label>
+								<div class="controls">
+									<input type="password" id="TE-PASS" placeholder="Current Password" ng-model="user.password" required><br>
+								<small style='color:red;'>
+                  * Enter your current password to make changes
+                </small style='color:red;'>
+								</div>
+
+							</div>
+
+						</form>
+					</div> <!-- End Current password well -->
+
+<!-- 					Block List -->
+					<div class="well well-light">
+
+						<h4 class="color">Block List <small> * 5 minute wait time between
+            adding and blocking</small></h4>
+
+						<form class="form-horizontal">
+
+							<div class="blockedAlerts-container">
+                <alert ng-repeat="message in messages" type="message.type" close="closeMessageAlert($index)">{{message.text}}</alert>
+							</div>
+
+							<div class="control-group">
+
+								<label for="TE-UNAME" class="control-label">Username</label>
+								<div class="controls">
+									<input id="TE-UNAME" ng-model='blocked.user' type="text" placeholder="Enter Username">
+									<button ng-click='addBlocked(blocked.user)' class="btn btn-danger">Block User</button>
+								</div>
+
+							</div>
+						</form>
+
+						<div id="" class="well blockedUsers">
+
+							<div ng-repeat="blocked in blockedUser" id="" class="list-alert"
+               ng-show="blockedUser.length > 0">
+
+								<button ng-click="removeBlocked($index, blocked)"
+								type='button' class="close"  popover-placement="right"
+								 popover="Remove" popover-trigger="mouseenter">&times;</button>
+
+								<span ng-bind="blocked.username"></span>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="pull-right">
+						<a href="/dashboard" class="btn">Cancel</a>
+						<button ng-disabled="confirm.$invalid" class="btn btn-green" href="#confirmModal" role="button" data-toggle="modal">
+            Save Changes
+            </button>
+
+					</div> <!-- End Block List -->
+
+				</div>
+			</div>
+		</div> <!-- Div .container -->
+
+    <!-- Confirm Change settings -->
+    <div id="confirmModal" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Confirm Settings Changes</h3>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to make changes to your account?</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal">Cancel</a>
+        <a ng-click="userUpdate(user)" class="btn btn-green" data-dismiss="modal">Save changes</a>
+      </div>
+    </div>
+
+		<div footer></div>

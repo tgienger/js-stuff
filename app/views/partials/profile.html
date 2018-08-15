@@ -1,0 +1,190 @@
+    <div header user="1" active="profile"></div>
+
+    <div class="container">
+      <div class="row">
+
+          <div class="span12">
+            <div class="media media-user">
+              <a class="pull-left" href="#">
+                <img class="media-object" src="images/logo0.png">
+              </a>
+              <div class="media-body">
+              <h4 class="media-heading" ng-bind="info.first_name">Tony</h4>
+                <span ng-bind="info.last_name">Stark</span>
+              </div>
+            </div>
+            <hr>
+          </div>
+        <div class="span4">
+
+          <alert ng-repeat="message in messages" type="message.type" close="closeMessageAlert($index)">{{message.text}}</alert>
+
+          <form class="form-inline">
+            <table class="table table-profile">
+              <thead>
+              <tr>
+                <th colspan="2">My Profile</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Zip Code</td>
+                <td><input class="span1" type="text" ng-model="info.zip"></td>
+              </tr>
+              <tr>
+                <td>State/Province</td>
+                <td>{{info.state || 'unknown'}}</td>
+              </tr>
+              <tr>
+
+                <!-- gender block -->
+                <td>Gender</td>
+                <td>
+                <select ng-model="info.gender" class="span1">
+                  <option value="m">Male</option>
+                  <option value="f">Female</option>
+                </select></td>
+                <!-- end gender block -->
+
+              </tr>
+              <tr>
+
+                <!-- age block -->
+                <td>Age</td>
+                <td>{{age}} <i class="icon-question-sign pull-right" popover-placement="right" popover="Based on the year you picked when you signed up. May not show your exact current age. Birthday option to come" popover-trigger="mouseenter"></i><br>
+                </td>
+                <!-- end age block -->
+
+              </tr>
+              <tr>
+
+                <!-- Birthday block -->
+                <!-- <td>Birthday</td>
+                <td>
+                  <div ng-if="!info.birthday">
+                    <month-select ng-model="user.mob" class="pull-right"></month-select>
+                    <select ng-model="user.dob" class="pull-right">
+                      <option value="">Select a day</option>
+                      <option ng-repeat="day in days" value="{{day}}">{{day}}</option>
+                    </select>
+                    <year-select class="pull-right" ng-model="user.yob"></year-select>
+                  </div>
+                  <div ng-if="info.birthday">
+                    {{info.birthday}}
+                  </div>
+                </td> -->
+                <!-- end birthday block -->
+
+              </tr>
+              <tr>
+
+                <!-- bio block -->
+                <td>Bio</td>
+                <td>
+                  <textarea name="" id="" cols="" rows="5" ng-model="info.bio"></textarea>
+
+                </td>
+                <!-- end bio block -->
+
+              </tr>
+              <tr>
+
+                <!-- interests block -->
+                <td>Interests</td>
+                <td>
+                <form name="intForm" novalidate >
+                  <input ng-change="queryInterests(interest.text)" class="span2" type="text" ng-model="interest.text" required>
+                </form>
+                    <button ng-click="addInterest(interest.text)" class="btn-mini btn-green">add</button>
+                    <button ng-click="delInterest(interest.text)" class="btn-mini btn-danger">del</button>
+                    <div class="listBox"><span ng-repeat="interest in interests">{{interest.interest}}{{$last ? '' : ', '}}</span></div>
+                    <span ng-show="queryResults" ng-repeat="interest in queryResults">{{interest.interest}}</span></td>
+
+                <!-- end interests block -->
+
+              </tr>
+              <tr>
+                <td>Favorite Athlete</td>
+                <td><input type="text" ng-model="info.favorite_athlete"></td>
+              </tr>
+              <tr>
+
+              </tr>
+              </tbody>
+            </table><hr>
+
+            <button ng-disabled="isUnchanged(info)" ng-click="update(info)" class="btn btn-green pull-right">Submit Changes</button>
+            <br>
+
+          <!-- Invite your friends form -->
+
+          </form>
+          <h5>Invite your friends</h5>
+          <p>Invite your friends to join 28Sports. Enter multiple email addresses separated by a comma.</p>
+          <form class="form-inline form-invite">
+            <textarea class="invite-area" rows="2"></textarea>
+            <button class="btn btn-green" type="submit">Invite</button>
+          </form>
+        </div>
+
+        <div class="span6 pull-right">
+
+          <alert ng-repeat="message in sportMessages" type="message.type" close="closeSportAlert($index)">{{message.text}}</alert>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Your currently watched sports</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+              <select class="pull-left" name="sport" ng-model="search.sport" ng-options="sport.sport for sport in sportList">
+
+                  <option value="">Select a Sport</option>
+
+              </select>
+              &nbsp;&nbsp;<button class="btn btn-green" ng-click="addSport(search.sport); search.sport = ''">Add</button></td>
+              <td>Remove</td>
+            </tr>
+            <tr ng-repeat="sport in sports">
+              <td colspan="2" popover-trigger="mouseenter" popover-placement="left" popover="Go To {{this.sport.sport}}" class="selector">{{sport.sport}} <button ng-click="removeSport(sport.id)" type="button" class="close">&times;</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="spacer"></div>
+
+          <table class="table table-profile">
+            <thead>
+              <tr>
+                <th colspan="2">Recent Posts By You</th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th>Sport</th>
+                <th>Post</th>
+              </tr>
+            </thead>
+            <tbody ng-if="posts.length">
+              <tr ng-repeat="post in posts">
+                <td><a class="link" href="/dashboard">{{post.sport}}</a></td>
+                <td ng-bind="post.status"></td>
+              </tr>
+            </tbody>
+            <tbody ng-if="!posts.length">
+              <tr>
+                <td></td>
+                <td><span class="pull-left">You haven't made any posts! Make your first</span> &nbsp;<a  href="/dashboard">now!</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <div footer></div>

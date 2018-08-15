@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="row">
+    <div class="span8 offset2">
+      <div class="well well-light">
+
+      <!-- Alert popup -->
+      <alert ng-repeat="message in messages" type="message.type" close="closeMessageAlert($index)">{{message.text}}</alert>
+
+        <h4 class="color">User Registration <small>all fields required</small></h4>
+        <form name="regform" novalidate class="form-horizontal">
+
+          <div class="control-group">
+              <label class="control-label" for="TE-FNAME">First Name</label>
+              <div class="controls">
+                  <input name="firstName" type="text" id="TE-FNAME" ng-model='user.fName' required autofocus>
+                  <i ng-class="regform.firstName.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-LNAME" >Last Name</label>
+              <div class="controls">
+                  <input name="lastName" type="text" id="TE-LNAME" ng-model='user.lName' required>
+                  <i ng-class="regform.lastName.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-ZIP">ZIP Code</label>
+              <div class="controls zipBox">
+                  <input ng-Keyup="queryZip(user.zipCode); zipHide = false" name="zipCode" type="text" id="TE-ZIP" ng-model='user.zipCode' required>
+                  <i ng-class="regform.zipCode.$valid ? 'icon-ok' : ''"></i>are you <a href="">{{guessed.zip}}</a>?
+                  <ul ng-click="zipHide = true" ng-hide="zipHide" class="zipList">
+                    <li ng-click="user.zipCode = result.zip" ng-repeat="result in zipResults">{{result.zip}} - {{result.county}} - {{result.state}}</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-EMAIL">Email</label>
+              <div class="controls">
+                  <input name="email" ng-model='user.email' type="email" id="TE-EMAIL" placeholder="name@address.com" required>
+                  <i ng-class="regform.email.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-BDAY">What year were you born?</label>
+              <div class="controls ">
+                  <!-- <select id="TE-BDAY" ng-model="user.yob" ng-change="" ng-options="year for year in years" required>
+                      <option value="">Select a Year</option>
+                  </select> -->
+                  <year-select></year-select>
+                  <i ng-class="regform.yob.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+
+          <label for="TE-GENDER" class="control-label">Gender</label>
+          <div class="button-group controls control-group" data-toggle="buttons">
+              <label class=" btn btn-default">
+                  <input required ng-model='user.gender' value="m"  type="radio" id="TE-GENDER" name="TE-GENDER"  style="vertical-align: top;"> Male</label>
+
+              <label class="btn btn-default">
+                  <input required ng-model='user.gender' value="f" type="radio" id="TE-GENDER" name="TE-GENDER" style="vertical-align: top;"> Female</label>
+          </div>
+
+          <!-- Add a sport to follow : sport-select directive -->
+          <label class="control-label" for="TE-SPORT">Pick a sport to follow</label>
+          <sport-select></sport-select>
+
+          <div class="spacer"></div>
+          <h4 class="color">Login Information</h4>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-UNAME">Username</label>
+              <div class="controls">
+                  <input name="username" ng-model='user.username' type="text" id="TE-UNAME" placeholder="Username" required>
+                  <i ng-class="regform.username.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="TE-PASS">Password</label>
+              <div class="controls">
+                  <input name="password" ng-model='user.password' type="password" id="TE-PASS" placeholder="Password" required>
+          <i ng-class="regform.password.$valid ? 'icon-ok' : ''"></i>
+              </div>
+          </div>
+          <div class="control-group">
+              <label class="control-label" for="TE-CPASS">Confirm Password</label>
+              <div class="controls">
+                  <input name="confirm" ng-model='user.confirm' type="password" id="TE-CPASS" placeholder="Password" required>
+          <i ng-class="regform.confirm.$valid ? 'icon-ok' : ''"></i>
+              </div><span ng-bind="passwordMessage"></span>
+              <br>
+              <div class="controls">
+
+              </div>
+          </div>
+        </form>
+      </div> <!-- div.well.well-light -->
+      <div class="pull-right">
+      <p class="pull-left"><small>by clicking register you agree to our <a href="#termsModal" role="button" data-toggle="modal">terms and conditions</a> and have read our <a href="#privacyModal" role="button" data-toggle="modal">privacy policy</a>.</small></p>&nbsp;
+           <a href="/welcome" class="btn">Cancel</a>
+          <button ng-click="register(user)" class="btn btn-green"
+           ng-disabled="regform.$invalid || isUnchanged(user)">Register</button>
+      </div>
+    </div> <!-- div.span8.offset2 -->
+  </div> <!-- div.row -->
+</div> <!-- div.container -->
+
+<!-- Registration Modal -->
+<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <img src="images/28sports_email_s.png" alt="28Sports">
+    <button ng-click="closeModal()"  type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Welcome to 28Sports!</h3>
+  </div>
+  <div class="modal-body">
+    <p>{{modal.message}}</p>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="closeModal()" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+
+<div footer></div>

@@ -1,0 +1,15 @@
+<div class="media media-person" ng-repeat="search in personSearch">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="img/logo0.png">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="#">{{search.first_name}} {{search.last_name}}</a></h4>
+    {{search.bio}}
+    <div class="media-info clearfix">
+      <div class="btn-group btn-media">
+        <button class="btn btn-small">Follow This Person</button>
+        <button class="btn btn-small btn-green">Send Friend Request</button>
+      </div>
+    </div>
+  </div>
+</div>

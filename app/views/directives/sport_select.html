@@ -1,0 +1,38 @@
+<div class="control-group">
+    <!-- <label class="control-label" for="TE-SPORT">Pick a sport to follow</label> -->
+    <div class="controls">
+        <!-- <select id="TE-SPORT" ng-model="selectedSport" ng-options="sport.id as sport.sport for sport in sportList"> -->
+
+        <select name="sport" required id="TE-SPORT" ng-model="user.sports"
+         ng-change="addSport(user.sports)"
+         ng-options="sport.sport for sport in sportList">
+
+            <option value="">Select a Sport</option>
+
+        </select>
+          <i ng-class="regform.sport.$valid ? 'icon-ok' : ''"></i>
+        <span ng-bind="message"></span>
+
+    </div>
+
+    <label class="control-label" for="TE-BDAY">Sports Chosen</label>
+
+    <ul class="list-group controls">
+
+      <li class="list-group-item list-group-item-success"
+       ng-repeat="sport in addedSportsList">
+
+        <button ng-click="removeSport($index, sport.sport)" type="button"
+         class="close" popover-placement="right" popover="Remove"
+         popover-trigger="mouseenter">
+
+          &times;
+
+        </button>
+
+        <span ng-bind="sport.sport"></span>
+      </li>
+
+    </ul>
+
+</div>

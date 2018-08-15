@@ -1,0 +1,528 @@
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+-	28Sports Custom bootstrap.	 -
+~	Created by William Hyde 	 ~
+-	For 28sports.com			 -
+COLOR: 45aa47 	-~-~-~-~-~-~-~-~- */
+
+body {
+	padding-top: 65px;
+}
+.landing-hold {
+	background-color: black;
+	padding: 10px 0;
+}
+
+/* LANDING LOGO */
+.landing-logo > img{
+	margin: 0 auto;
+}
+
+/* TEXT STYLES */
+.well-hero {
+	display: inline-block;
+	color: #333333;
+	font-size: 16px;
+	line-height: 18px;
+	margin-bottom: 10px;
+}
+h4, h5 {
+	margin: 3px 0 15px;
+}
+.landing-hold  h3 {
+	color: #aaa;
+}
+.landing-hold  h4.slogan {
+	color: whiteSmoke;
+	text-align: center;
+	letter-spacing: 1.4px;
+}
+.color {
+	color: #45aa47;
+}
+/* CUSTOM LIST-GROUP */
+.list-group {
+	width: 220px;
+	margin-top: 10px;
+}
+
+/* CUSTOM WELLS */
+.well-custom {
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.6);
+	box-shadow: 0 0 8px rgba(0,0,0,0.6);
+	background-color: #dddddd;
+	border-color: #999;
+	border-radius: 0;
+}
+.well-custom hr {
+	margin: 10px 0;
+	border-top-color: #aaa;
+	border-bottom: none;
+}
+.well-fixed {
+	position: fixed;
+}
+.well-light {
+	background-color: #fcfcfc;
+	border-color: #aaa;
+}
+
+/* CUSTOM POST HOLDER */
+.posts-wrap {
+	min-height: 200px;
+	border: 1px solid #dcdcdc;
+	border-radius: 12px;
+}
+.posts-wrap > .nav-tabs {
+	padding-top: 10px;
+	margin-bottom: 3px;
+}
+.posts-wrap > .nav-tabs > li {
+	margin-left: 2px;
+}
+.posts-wrap > .posts-holder {
+	padding: 30px 15px 15px;
+}
+.posts-wrap.posts-landing {
+	border-color: #333;
+	border-radius: 0;
+}
+.posts-wrap.posts-landing > h3{
+	margin-left: 10px;
+	color: #aaa;
+}
+.posts-wrap.posts-landing > .posts-holder {
+	max-height: 440px;
+	overflow: auto;
+	overflow-x: none;
+	overflow-y: auto;
+	padding-top: 5px;
+}
+.posts-wrap.posts-landing .media-post {
+	border-bottom-color: #444;
+}
+.posts-wrap.posts-landing .media-body {
+	color: #dcdcdc;
+}
+.posts-wrap.posts-landing .media-heading > a {
+	color: #f3f3f3;
+}
+.posts-wrap.posts-landing .media-info {
+	background-color: #252525;
+}
+.posts-wrap.posts-landing .media-info-text {
+	color: #777;
+}
+
+/* NAV AND NAVBARS */
+.navbar .brand-img {
+	padding: 5px 20px 5px;
+}
+.navbar-inverse .nav .active > a,
+.navbar-inverse .nav .active > a:hover,
+.navbar-inverse .nav .active > a:focus {
+	background-color: #424242;
+}
+.nav-tabs > li.brand {
+	color: #45aa47;
+	text-shadow: 0 0 3px rgba(69,170,71,0.55);
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	padding: 8px;
+}
+
+/* MEDIA OBJECTS */
+.media-info,
+.media-user  .media-object,
+.media-post .media-object,
+.media-person .media-object  {
+	border-radius: 3px;
+}
+.media-user .media-object,
+.media-post .media-object,
+.media-person .media-object  {
+	padding: 4px;
+	border: 1px solid #777777;
+}
+.media-post {
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #c3c3c3;
+}
+.media-person {
+	padding-bottom: 7px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.media-heading > a,
+.media-heading > a:hover,
+.media-heading > a:focus,
+.media-heading > a:active {
+	color: black;
+	text-decoration: none;
+}
+.media-info {
+	padding: 4px 10px;
+	margin-top: 10px;
+	background-color: #efefef;
+}
+.media-info .media-info-text {
+	display: inline-block;
+	line-height: 20px;
+}
+.media-info .media-info-text,
+.media-info .btn-media,
+.media-info .media-info-controls {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.media-info-controls {
+	margin-left: 5px;
+	float: right;
+}
+.media-info hr {
+	margin: 8px 0;
+}
+.media-reply {
+	padding-top: 15px;
+	border-top: 1px solid #e4e4e4;
+}
+
+/* FORM STUFF */
+.form-invite .btn {
+	float: right;
+	margin-top: 10px;
+}
+.form-invite .invite-area ,
+.form-well .post-area,
+.media-reply .reply-area {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 25px;
+	resize: vertical;
+}
+.form-well {
+	margin: 0;
+}
+.form-well .post-area {
+	margin-bottom: 12px;
+}
+.form-landing {
+	color: white;
+}
+textarea:focus, input[type="text"]:focus,
+input[type="password"]:focus, input[type="datetime"]:focus,
+input[type="datetime-local"]:focus, input[type="date"]:focus,
+input[type="month"]:focus, input[type="time"]:focus,
+input[type="week"]:focus, input[type="number"]:focus,
+input[type="email"]:focus, input[type="url"]:focus,
+input[type="search"]:focus, input[type="tel"]:focus,
+input[type="color"]:focus, .uneditable-input:focus {
+	border-color: rgb(69,170,71);
+	-webkit-box-shadow: 0 0 8px rgba(69,170,71,0.6);
+	box-shadow: 0 0 8px rgba(69,170,71,0.6);
+}
+
+/* TABLES */
+.table-profile > thead th,
+.table-profile > tbody td {
+	color: #666666;
+}
+.table-profile > tbody td:first-child {
+	color: #45aa47;
+	font-weight: bold;
+}
+
+/* BUTTONS */
+.btn-green {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #45aa47;
+	*background-color: #45aa47;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#45aa47), to(#3e9840));
+	background-image: -webkit-linear-gradient(top, #45aa47, #3e9840);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#45aa47), to(#3e9840));
+	background-image: linear-gradient(to bottom, #45aa47, #3e9840);
+	background-repeat: repeat-x;
+	border-color: #3e9840 #3e9840 #337c34;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff45aa47', endColorstr='#ff3e9840', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active,
+.btn-green.disabled,
+.btn-green[disabled] {
+	color: #ffffff;
+	background-color: #3e9840;
+	*background-color: #3e9840;
+}
+
+.btn-green:active,
+.btn-green.active {
+	background-color: #3e9840 \9;
+}
+.btn-landing {
+	width: 68%;
+	margin: 0 16%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* OTHER STUFF */
+.thumb-post {
+	display: inline-block;
+}
+
+/* MODELS AND JS */
+.gallery-body {
+	padding: 0;
+	min-height: 50px;
+}
+.gallery-body > .carousel {
+	margin: 0;
+}
+.gallery-body > .carousel > .carousel-control {
+	top: 100px;
+	width: 25px;
+	height: 25px;
+	font-size: 35px;
+	line-height: 20px;
+}
+
+/* FOOTER */
+.footer-custom {
+	text-align: center;
+	margin-top: 20px;
+}
+
+/* CUSTOM WEBKIT SCROLL */
+::-webkit-scrollbar {
+	width: 6px;
+}
+	/* Track */
+::-webkit-scrollbar-track {
+	background: #d4d4d4;
+}
+	/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.6);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.45);
+}
+
+/* Blocked Users Box */
+.blockedUsers {
+	width: 50%;
+	height: 150px;
+	margin: auto;
+	overflow-y: scroll;
+	font-size: 1.2em;
+	padding: 10px;
+}
+
+.blockedUsers ul {
+	list-style: none;
+}
+
+.list-alert {
+	padding: 10px;
+	border-bottom: 1px solid #aaa;
+}
+
+/* Blocked users alert box */
+.blockedAlerts-container {
+	width: 90%;
+	height: 50px;
+	margin: auto;
+}
+
+.spacer {
+  width: 100%;
+  height: 50px;
+}
+
+.modalLogo {
+  margin-bottom: 20px;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.listBox {
+  width: 100%;
+  height: 100px;
+  background-color: #fcfcfc;
+  border: 1px solid #aaa;
+}
+
+.zipBox {
+  position: relative;
+}
+
+.zipList {
+  list-style: none;
+  z-index: 10;
+  background: #ffffff;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  border-top: none;
+  position: absolute;
+  left: -20px;
+}
+
+.zipList > li {
+  text-align: center;
+  padding: 5px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.zipList > li:hover {
+  background: #399e36;
+  color: white;
+}
+
+.welcomeAlert {
+  margin: auto;
+  width: 200px;
+}
+
+#bio {
+  width: 100%;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: inherit;
+}
+
+/* My Profile */
+.selector {
+  cursor: pointer;
+}
+.selector:hover {
+  background: #5f5f5f;
+  color: white;
+}
+
+/* Private Messages */
+.messageBox{
+  cursor: pointer;
+}
+.message:hover{
+  background: rgba(100,100,100,0.5);
+}
+.messageBody {
+  white-space: pre;
+}
+
+/* replyBox Animation */
+
+.replyBox {
+    -webkit-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity:1;
+    overflow-y: hidden;
+    max-height: 500px;
+
+    transition-property: all;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(1, .5, 0.5, 1);
+}
+
+.replyBox.ng-hide {
+    opacity:0;
+    max-height: 0;
+}
+
+.replyBox.ng-hide-add, .replyBox.ng-hide-remove {
+     /*this needs to be here to make it visible during the animation*/
+       /*since the .ng-hide class is already on the element rendering*/
+       /*it as hidden.*/
+    display:block!important;
+}
+
+/* -~-~-~-~-~-~-~-~
+	MEDIA QUERIES
+   -~-~-~-~-~-~-~-~ */
+@media (min-width: 1200px) {
+	.well-custom.well-fixed { width: 332px; }
+}
+@media (min-width: 980px) and (max-width: 1199px){
+	.well-custom.well-fixed { width: 262px; }
+	.posts-wrap.posts-landing > .posts-holder { max-height: 410px; }
+}
+@media (min-width: 768px) and (max-width: 979px){
+	.landing-hold {
+		margin-top: 40px;
+	}
+	.well-custom.well-fixed { width: 190px; }
+	.posts-wrap.posts-landing > .posts-holder { max-height: 390px; }
+	.form-landing .control-label {
+		width: 100px;
+	}
+	.form-landing  .controls {
+		margin-left: 120px;
+	}
+}
+@media (max-width: 979px) {
+	body { padding-top: 0; }
+}
+@media (max-width: 767px) {
+	#landing-page {
+		padding: 0;
+	}
+	#landing-page > .landing-hold {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#landing-page > .footer-custom {
+		margin: 20px 10px;
+	}
+	.well-custom, .well-light, .nav-selector, .posts-wrap {
+		margin-left: -12px;
+		margin-right: -12px;
+	}
+	.posts-wrap > .posts-holder {
+		padding: 15px 6px;
+	}
+	.well-custom, .well-light {
+		padding: 10px;
+	}
+	.well-custom.well-fixed {
+		width: auto;
+		position: static;
+	}
+}
+@media (max-width: 500px) {
+	.well-custom  select,
+	.well-custom .btn {
+		margin-bottom: 6px;
+	}
+	.well-custom .btn {
+		float: none;
+	}
+}
+@media (max-width: 480px) {
+	.media-reply {
+		border-top: none;
+		border-left: 5px solid #777777;
+		padding-left: 20px;
+	}
+	.posts-wrap .nav-tabs > li > a {
+		padding-left: 7px;
+		padding-right: 7px;
+	}
+}
